@@ -156,6 +156,7 @@
                                 <?php foreach ($available_roles AS $available_role){?>
                                     <option value="<?php echo $available_role->role_id;?>" <?php if($available_role->user_id != 0){?>disabled="disabled"<?php }?>><?php echo $available_role->role_name;?></option>
                                 <?php }?>
+                                <option value="20">Driver</option>
                             </select>
                         </div>
                         <div class="form-group">

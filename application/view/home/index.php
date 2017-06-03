@@ -198,7 +198,11 @@
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     <div class="carousel-inner">
                         <div class="item active">
-                        <?php $count=0; foreach($members AS $member){$count++;?>
+                        <?php $count=0; foreach($members AS $member){ ?>
+							<?php if($count == 6){$count=0;?>
+                                </div>
+                                <div class="item">
+                            <?php } $count++;?>
                             <div class="col-sm-4">
                                 <div class="single-event">
                                     <!--<img class="img-responsive" src="http://i.imgur.com/EMqpNLM.jpg" alt="event-image">-->
@@ -206,10 +210,6 @@
                                     <h5></h5>
                                 </div>
                             </div>
-                            <?php if($count == 6){$count=0;?>
-                                </div>
-                                <div class="item">
-                            <?php }?>
                         <?php }?></div>
                     </div>
                 </div>

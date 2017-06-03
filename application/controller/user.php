@@ -242,22 +242,39 @@ class User extends Controller{
 		if(isset($_POST['give_role'])){
 			$give_role = $this->protect($_POST['role']);
 			$give_userid = $this->protect($_POST['user']);
-			if($give_role == 0 OR $give_userid == 0){
-				$showmessage = "Please select values in both fields";
-			}
-			else if($this->model->checkAvailable($event_id, $give_role) != 0){
-				$showmessage = "Role already taken by someone else. Please choose another role.";
-			}
-			else if($this->model->findUserRole($event_id, $give_userid)->count_role != 0){
-				$showmessage = "A role is already assigned to this user. Please choose another user.";
-			}
-			else if($this->model->checkDriver($event_id, $give_userid)->count_drivers != 0){
-				$showmessage = "A role is already assigned to this user. Please choose another user.";
-			}
-			else{
-                $this->model->updateEventRole($event_id, $give_userid, $give_role, 0);
-                header('location:' . URL . 'user/event/' . $event_id);
-			}
+			if($give_role == "20"){
+                if ($give_role == 0 || $give_userid == 0) {
+                    $showmessage = "Please select values in both fields";
+                }
+                else if($this->model->findUserRole($event_id, $give_userid)->count_role != 0){
+                    $showmessage = "A role is already assigned to this user. Please choose another user.";
+                }
+                else if($this->model->checkDriver($event_id, $give_userid)->count_drivers != 0){
+                    $showmessage = "A role is already assigned to this user. Please choose another user.";
+                }
+                else{
+                    $this->model->insertDriver($event_id, $give_userid);
+                    header('location:' . URL . 'user/event/' . $event_id);
+                }
+            }
+            else {
+                if ($give_role == 0 || $give_userid == 0) {
+                    $showmessage = "Please select values in both fields";
+                }
+                else if ($this->model->checkAvailable($event_id, $give_role) != 0) {
+                    $showmessage = "Role already taken by someone else. Please choose another role.";
+                }
+                else if ($this->model->findUserRole($event_id, $give_userid)->count_role != 0) {
+                    $showmessage = "A role is already assigned to this user. Please choose another user.";
+                }
+                else if ($this->model->checkDriver($event_id, $give_userid)->count_drivers != 0) {
+                    $showmessage = "A role is already assigned to this user. Please choose another user.";
+                }
+                else {
+                    $this->model->updateEventRole($event_id, $give_userid, $give_role, 0);
+                    header('location:' . URL . 'user/event/' . $event_id);
+                }
+            }
 		}
 		if($rank>1){
 			$all_members = $this->model->fetchMembers();

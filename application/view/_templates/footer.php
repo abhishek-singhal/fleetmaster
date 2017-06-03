@@ -2,7 +2,7 @@
 		<div class="pull-right hidden-xs">
 			<b>Made By</b><strong> <a href="http://steamcommunity.com/id/orang-e" target="_blank">Orange</a></strong>
 		</div>
-		<strong>Copyright &copy; 2017</strong> All rights reserved.
+		<strong>Copyright &copy; 2017</strong> All rights reserved. <strong><a href="<?php echo URL;?>home/index">FME Homepage</a></strong>
 	</footer>
 </div>
 <!-- jQuery 2.2.3 -->
