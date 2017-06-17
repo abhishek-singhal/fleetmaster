@@ -40,7 +40,7 @@
                             <?php foreach($attendCC AS $a){?>
                                 <tr>
                                     <td>
-                                        <?php echo $this->model->fetchUser($a->user_id)->steam_name;?>
+                                      <a href="<?php echo URL . 'user/profile/' . $a->user_id; ?>" target="_blank"><?php echo $this->model->fetchUser($a->user_id)->steam_name;?></a>
                                     </td>
                                     <td>
                                         <?php if($a->user_id == 1){?>

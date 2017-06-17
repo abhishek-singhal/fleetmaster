@@ -92,6 +92,9 @@ h2 {
 .social-icons .fa-steam:hover {
   color:#cccccc
 }
+.social-icons .fa-twitch:hover {
+  color:#6441a5
+}
 
 .social-icons .fa-google-plus:hover {
   color:#D13D2F
@@ -102,7 +105,7 @@ h2 {
 }
 
 .navbar-brand {
-  background-color: #01ABAA;
+  /*background-color: #08386d;*/
   height: 90px;
   margin-bottom: 20px;
   position: relative;
@@ -115,7 +118,7 @@ h2 {
 }
 
 .navbar-right {
-  background-color: #01ABAA;
+  background-color: #08386d;
   padding:0 95px 0 0;
   opacity: .9
 }
@@ -133,12 +136,12 @@ h2 {
 .navbar-right li a:focus,  
 .navbar-right .active a {
   background-color: #fff;
-  color: #01ABAA;
+  color: #08386d;
 }
 
 
 .fixed-menu {
-  background-color: #01ABAA;
+  background-color: #08386d;
   position: fixed;
   top: 0;
 }
@@ -215,12 +218,12 @@ h2 {
 #main-slider 
 .carousel-caption a {
   font-size: 22px;
-  color: #01ABAA;
+  color: #08386d;
 }
 
 #main-slider 
 .carousel-caption a:hover {
-  color: #00FFFA;
+  color: #08386d;
 }
 
 #main-slider 
@@ -240,8 +243,8 @@ h2 {
 
 #main-slider 
 .carousel-indicators li {
-  background-color:#1e9e91;
-  border: 1px solid #1e9e91;
+  background-color:#08386d;
+  border: 1px solid #08386d;
 }
 
 #main-slider 
@@ -484,7 +487,7 @@ h2 {
   background-position: left bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 70px 70px 95px;
+  padding: 0px 70px 0px;
 }
 
 
