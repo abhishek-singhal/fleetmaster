@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Fleet Master Events</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo URL; ?>images/fme.png">
   <link rel="stylesheet" href="<?php echo URL; ?>bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="<?php echo URL; ?>plugins/jvectormap/jquery-jvectormap-1.2.2.css">
@@ -154,6 +155,13 @@ $this->model->updateIP($_SESSION['user_id'], $this->getuserIP());
           <li<?php if ($page == 10) { ?> class="active"<?php } ?>>
             <a href="<?php echo URL; ?>user/editdash">
               <i class="fa fa-wrench"></i> <span>Edit Dashboard</span>
+            </a>
+          </li>
+				<?php } ?>
+				<?php if ($rank > 1) { ?>
+          <li<?php if ($page == 11) { ?> class="active"<?php } ?>>
+            <a href="<?php echo URL; ?>user/otherevents">
+              <i class="fa fa-truck"></i> <span>Other Events</span>
             </a>
           </li>
 				<?php } ?>

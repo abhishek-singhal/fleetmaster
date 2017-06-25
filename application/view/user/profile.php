@@ -9,7 +9,11 @@
 					<div class="box-body box-profile">
 						<img class="profile-user-img img-responsive img-circle" src="<?php echo $profile->avatar;?>" alt="User profile picture">
 						<h5 class="profile-username text-center"><?php echo $profile->steam_name;?></h5>
-						<p class="text-muted text-center"><?php if($profile->rank == 0){echo "Guest";}else if($profile->rank == 1){echo "Member";}else if($profile->rank == 2 || $profile->rank == 3){echo "Admin";}?></p>
+						<p class="text-muted text-center">
+							<?php if($profile->rank > 1){echo "Admin<br>";}?>
+              <?php if($profile->rank == 0){echo "Guest";}else{if($profile->role == NULL){echo "Member";}else{echo $profile->role;}}?>
+
+            </p>
 						<ul class="list-group list-group-unbordered">
 							<li class="list-group-item"><b>Hours Played</b> <a class="pull-right"><?php echo $playtime;?></a></li>
 							<!--<li class="list-group-item"><b>Followers</b> <a class="pull-right"></a></li>
@@ -60,7 +64,7 @@
 						<div class="tab-pane" id="settings">
 							<form role="form" action="" method="POST" class="form-horizontal">
 								<div class="form-group">
-									<label for="inputName" class="col-sm-2 control-label">Update Role</label>
+									<label for="inputName" class="col-sm-2 control-label">Update Rank</label>
 									<div class="col-sm-5">
 										<select class="form-control" name="rank">
 											<option value="0">Guest</option>
@@ -73,6 +77,17 @@
 									</div>
 								</div>
 							</form>
+              <form role="form" action="" method="POST" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputName" class="col-sm-2 control-label">Update Role</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="Enter Role" value="<?php echo $profile->role;?>" name="role_val" required>
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="submit" class="btn btn-danger" name="update_role">Submit</button>
+                  </div>
+                </div>
+              </form>
 						</div>
 						<?php }?>
 					</div>

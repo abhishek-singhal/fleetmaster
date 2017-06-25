@@ -1,11 +1,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>css/jquery.datetimepicker.min.css">
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Create Event
+    <h1>Other Events
       <small></small>
     </h1>
   </section>
-
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
@@ -18,8 +17,8 @@
             <div class="box-body">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Event Name</label>
-                  <input type="text" class="form-control" placeholder="Enter Name" name="event_name" required>
+                  <label for="exampleInputEmail1">Event Planner Name</label>
+                  <input type="text" class="form-control" placeholder="Enter Name" name="planner" required>
                 </div>
 
                 <div class="form-group">
@@ -65,16 +64,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Route Map</label>
-                  <input type="text" class="form-control"
-                         placeholder="Enter URL of Image. Example http://i.imgur.com/abcd.png" name="route_map"
-                         required>
-                  <p class="help-block">Enter 0 if not available. Can be edited later.</p>
-                </div>
-                <div class="form-group">
                   <label for="exampleInputEmail1">ETS2C.com page</label>
                   <input type="text" class="form-control" placeholder="Enter the URL here" name="event_page" required>
-                  <p class="help-block">Enter 0 if not available. Can be edited later.</p>
                 </div>
                 <div class="form-group">
                   <label>Additional Notes:</label>
@@ -83,32 +74,10 @@
                             required></textarea>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Roles Needed?</label>
-                  <div class="input-group">
-                    <input type="checkbox" name="lead" class="minimal" checked> Lead &emsp;
-                    <input type="checkbox" name="colead" class="minimal" checked> Co-Lead &emsp;
-                    <input type="checkbox" name="cc1" class="minimal" checked> CC1 &emsp;
-                    <input type="checkbox" name="cc2" class="minimal" checked> CC2 &emsp;
-                    <input type="checkbox" name="cc3" class="minimal" checked> CC3 &emsp;
-                    <input type="checkbox" name="cc4" class="minimal" checked> CC4 &emsp;
-                    <input type="checkbox" name="cc5" class="minimal" checked> CC5 &emsp;
-                    <input type="checkbox" name="cc6" class="minimal"> CC6 &emsp;
-                    <input type="checkbox" name="cc7" class="minimal"> CC7 &emsp;
-                    <input type="checkbox" name="cc8" class="minimal"> CC8 &emsp;
-                    <input type="checkbox" name="cc9" class="minimal"> CC9 &emsp;
-                    <input type="checkbox" name="cc10" class="minimal"> CC10 &emsp;
-                    <input type="checkbox" name="middle" class="minimal" checked> Middle &emsp;
-                    <input type="checkbox" name="tail" class="minimal" checked> Tail &emsp;
-                    <input type="checkbox" name="reserve" class="minimal" checked> Reserve
-                  </div>
-                  <p class="help-block">Roles cannot be edited after event is created.</p>
-                </div>
-              </div>
+
             </div>
             <div class="box-footer" align="center">
-              <button type="submit" class="btn btn-primary" name="create_event">Create Event</button>
+              <button type="submit" class="btn btn-primary" name="other_event">Create Event</button>
               <button type="reset" class="btn btn-default">Reset</button>
             </div>
           </form>

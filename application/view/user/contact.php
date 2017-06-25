@@ -27,13 +27,20 @@
                   <td><?php if (isset($id)) {
 											if ($id == $all_message->serial) { ?>
                         <span class="label label-primary">Now Viewing</span>
+											<?php } else {
+												if ($all_message->status == 0) { ?>
+                          <span class="label label-warning">New</span>
+												<?php } else { ?>
+                          <span class="label label-success">Seen</span><?php } ?>
 											<?php }
 										} else {
-											if ($all_message->status == 0) { ?><span
-                        class="label label-warning">New</span><?php } else { ?><span
-                        class="label label-success">Seen</span><?php } ?>
-										<?php } ?></td>
-                  <td><?php echo date("F j, Y H:i",$all_message->time);?> GMT</td>
+											if ($all_message->status == 0) { ?>
+                        <span class="label label-warning">New</span>
+											<?php } else { ?>
+                        <span class="label label-success">Seen</span><?php } ?>
+										<?php } ?>
+                  </td>
+                  <td><?php echo date("F j, Y H:i", $all_message->time); ?> GMT</td>
                   <td><a href="<?php echo URL . 'user/contact/' . $all_message->serial; ?>" title="Open"><span
                         class="label label-primary"><i class="fa fa-envelope-open-o"></i></span></a>
 										<?php if ($all_message->status == 0) { ?>
@@ -85,7 +92,7 @@
                 <dt>
                 <div align="left">Time</div>
                 </dt>
-                <dd><?php echo date("F j, Y H:i",$message->time); ?></dd>
+                <dd><?php echo date("F j, Y H:i", $message->time); ?></dd>
               </dl>
 
             </div>

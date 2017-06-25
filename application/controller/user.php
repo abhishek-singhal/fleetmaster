@@ -25,6 +25,8 @@ class User extends Controller
 		$page = 1;
 		list($user_details, $avatar, $rank) = $this->check($_SESSION['user_id']);
 		$points = $this->model->fetchContent();
+		$count_event = $this->model->countOtherEvent(time()-3600);
+		$other_events = $this->model->fetchAllOtherEvents(time()-3600);
 		require APP . 'view/_templates/header.php';
 		require APP . 'view/user/index.php';
 		require APP . 'view/_templates/footer.php';
@@ -301,12 +303,9 @@ class User extends Controller
 		}
 		$event_details = $this->model->fetchEvent($event_id);
 		if ($event_details->user_id == $_SESSION['user_id'] || $rank > 1) {
-
 			$this->model->deleteEvent($event_id);
-			header('location: ' . URL . 'user/upcoming');
-		} else {
-			header('location: ' . URL . 'user/upcoming');
 		}
+		header('location: ' . URL . 'user/upcoming');
 	}
 
 	public function edit($event_id)
@@ -406,6 +405,11 @@ class User extends Controller
 			$this->model->updateRank($user_id, $new_rank);
 			header('location: ' . URL . 'user/profile/' . $user_id);
 		}
+		if(isset($_POST['update_role'])){
+			$new_role = $this->protect($_POST['role_val']);
+			$this->model->updateRole($user_id, $new_role);
+			header('location:' . URL . 'user/profile/' . $user_id);
+		}
 		require APP . 'view/_templates/header.php';
 		require APP . 'view/user/profile.php';
 		require APP . 'view/_templates/footer.php';
@@ -431,7 +435,6 @@ class User extends Controller
 		}
 		require APP . 'view/_templates/header.php';
 		require APP . 'view/user/absent.php';
-		//require APP . 'view/_templates/footer.php';
 	}
 
 	public function past()
@@ -581,7 +584,48 @@ class User extends Controller
 		}
 		header('location: ' . URL . 'user/editdash');
 	}
-
+	public function otherevents(){
+		$page = 11;
+		list($user_details, $avatar, $rank) = $this->check($_SESSION['user_id']);
+		if ($rank < 2) {
+			header('location: ' . URL . 'user/index');
+		}
+		if(isset($_POST['other_event'])){
+			$planner = $this->protect($_POST['planner']);
+			$server = $this->protect($_POST['server']);
+			$source = $this->protect($_POST['source']);
+			$destination = $this->protect($_POST['destination']);
+			$time = strtotime($this->protect($_POST['time']));
+			$event_page = $this->protect($_POST['event_page']);
+			$notes = $this->protect($_POST['notes']);
+			if (isset($_POST['trailer'])) {
+				$trailer = "Yes";
+			} else {
+				$trailer = "No";
+			}
+			if($planner == null || $source == null || $destination == null || $time == null || $event_page == null || $notes == null || $server == null){
+				$success = 0;
+			}
+			else if($time < time()){
+				$success = 0;
+			}else{
+				$this->model->insertOtherEvent($planner, $server, $source, $destination, $trailer, $event_page, $time, $notes);
+				$success = 1;
+			}
+		}
+		//load views
+		require APP . 'view/_templates/header.php';
+		require APP . 'view/user/otherevent.php';
+		require APP . 'view/_templates/footer.php';
+	}
+	public function deleteother($id){
+		$page = 1;
+		list($user_details, $avatar, $rank) = $this->check($_SESSION['user_id']);
+		if ($rank > 1) {
+			$this->model->deleteOtherEvent($id);
+		}
+		header('location: ' . URL . 'user/index');
+	}
 	public function logout()
 	{
 		if (isset($_SESSION['user_id']) || isset($_COOKIE['user_id'])) {

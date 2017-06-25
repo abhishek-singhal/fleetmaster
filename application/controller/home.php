@@ -58,9 +58,9 @@ class Home extends Controller
 						if ($user_details->rank != 0) {
 							$_SESSION['user_id'] = $user_details->user_id;
 							setcookie("fmelogin", $user_details->cookie, time() + (86400 * 90), "/");
-							header('location: http://127.0.0.1/fme/user/index');
+							header('location:' . URL . 'user/index');
 						} else {
-							header('location: http://127.0.0.1/fme/home/index');
+							header('location:' . URL .'home/index');
 						}
 					}
 				} else {
@@ -85,5 +85,21 @@ class Home extends Controller
 			$result = "Message sent!";
 		}
 		echo $result;
+	}
+	public function updatesteam(){
+		$members = $this->model->fetchProfilesAll();
+		$_STEAMAPI = "03B0C68B2B0BF14C49BF8131D3CF6022";
+		$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=$_STEAMAPI&steamids=";
+		foreach($members AS $member){
+			$url = $url . $member->steam_id . ",";
+		}
+		$json_object = file_get_contents($url);
+		$json_decoded = json_decode($json_object);
+		foreach($json_decoded->response->players AS $player){
+			$steam_id = $player->steamid;
+			$steam_name  = $player->personaname;
+			$avatar = $player->avatarfull;
+			$this->model->updateUser($steam_id, $steam_name, $avatar);
+		}
 	}
 }

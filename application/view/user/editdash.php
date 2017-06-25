@@ -6,7 +6,7 @@
   </section>
   <section class="content">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title">Current Points</h3>
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
 				<?php if (isset($input)) { ?>
           <div class="box box-warning">
             <div class="box-header with-border">

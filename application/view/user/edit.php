@@ -27,6 +27,8 @@
 										<option value="ETS2 EU1">ETS2 EU1</option>
 										<option value="ETS2 EU2">ETS2 EU2</option>
 										<option value="ETS2 EU3">ETS2 EU3</option>
+                    <option value="ATS EU2">ATS EU2</option>
+                    <option value="ATS US1">ATS US1</option>
 									</select>
 								</div>
 							

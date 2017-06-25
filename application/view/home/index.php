@@ -38,12 +38,12 @@
       </div>
       <div class="row">
         <div class="navbar-header">
-          <!--          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
-          <!--            <span class="sr-only">Toggle navigation</span>-->
-          <!--            <span class="icon-bar"></span>-->
-          <!--            <span class="icon-bar"></span>-->
-          <!--            <span class="icon-bar"></span>-->
-          <!--          </button>-->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <span class="navbar-brand">
             <img class="img-responsive" src="<?php echo URL; ?>images/fme.png" alt="logo">
           </span>
@@ -218,7 +218,7 @@
                   <img class="img-responsive" src="<?php echo $member->avatar; ?>" alt="event-image">
                   <h4><a href="http://steamcommunity.com/profiles/<?php echo $member->steam_id; ?>"
                          target="_blank"><font color="white"><?php echo $member->steam_name; ?></font></a></h4>
-                  <h5></h5>
+                  <h5><?php  if($member->role == NULL){ echo "member";}else{echo $member->role;}?></h5>
                 </div>
               </div>
 							<?php } ?></div>
@@ -345,8 +345,8 @@
 <!--/#footer-->
 
 <script type="text/javascript" src="<?php echo URL; ?>js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="<?php echo URL; ?>js/gmaps.js"></script>
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
+<!--<script type="text/javascript" src="--><?php //echo URL; ?><!--js/gmaps.js"></script>-->
 <script type="text/javascript" src="<?php echo URL; ?>js/smoothscroll.js"></script>
 <script type="text/javascript" src="<?php echo URL; ?>js/jquery.parallax.js"></script>
 <script type="text/javascript" src="<?php echo URL; ?>js/coundown-timer.js"></script>
