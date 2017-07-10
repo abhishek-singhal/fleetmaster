@@ -436,6 +436,13 @@ class User extends Controller
 		require APP . 'view/_templates/header.php';
 		require APP . 'view/user/absent.php';
 	}
+	public function deleteabsent($serial){
+		list($user_details, $avatar, $rank) = $this->check($_SESSION['user_id']);
+		if ($rank > 1) {
+			$this->model->deleteAbsent($serial);
+		}
+		header('location: ' . URL . 'user/absent');
+	}
 
 	public function past()
 	{

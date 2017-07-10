@@ -255,6 +255,12 @@ class Model
 		$parameters = array(':user_id' => $user_id, ':start_date' => $start_date, ':end_date' => $end_date, ':reason' => $reason);
 		$query->execute($parameters);
 	}
+	public function deleteAbsent($serial){
+		$sql = "DELETE FROM absent WHERE serial = :serial";
+		$query = $this->db->prepare($sql);
+		$parameters = array(':serial' => $serial);
+		$query->execute($parameters);
+	}
 	public function currentAbsent($time)
 	{
 		$sql = "SELECT * FROM absent WHERE start_date < :time AND end_date > :time ORDER BY end_date ASC";
@@ -368,6 +374,13 @@ class Model
 	public function totalevents($time)
 	{
 		$sql = "SELECT count(event_id) AS count_events FROM events WHERE time < :time";
+		$query = $this->db->prepare($sql);
+		$parameters = array(':time' => $time);
+		$query->execute($parameters);
+		return $query->fetch()->count_events;
+	}
+	public function totalevents4week($time){
+		$sql = "SELECT count(event_id) AS count_events FROM events WHERE time > :time - 2419200 AND time < :time";
 		$query = $this->db->prepare($sql);
 		$parameters = array(':time' => $time);
 		$query->execute($parameters);

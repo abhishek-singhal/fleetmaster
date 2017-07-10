@@ -15,14 +15,14 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover table-bordered">
                 <tr>
-                  <th>Event Planner</th>
+                  <th>Hosted By</th>
                   <th>Server</th>
                   <th>Source</th>
                   <th>Destination</th>
                   <th>Time</th>
                   <th>Trailer</th>
                   <th>Notes</th>
-                  <th>ETS2C.COM</th>
+                  <th>Event Page</th>
                 </tr>
                 <?php foreach($other_events AS $other_event){?>
                 <tr>
