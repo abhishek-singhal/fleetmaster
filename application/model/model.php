@@ -41,11 +41,11 @@ class Model
 		$query->execute($parameters);
 		return $query->fetch();
 	}
-	public function createEvent($user_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes)
+	public function createEvent($user_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes, $spreadsheet)
 	{
-		$sql = "INSERT INTO events (user_id, event_name, server, source, destination, time, trailer, route_map, event_page, notes) VALUES (:user_id, :event_name, :server, :source, :destination, :time, :trailer, :route_map, :event_page, :notes)";
+		$sql = "INSERT INTO events (user_id, event_name, server, source, destination, time, trailer, route_map, event_page, notes, spreadsheet) VALUES (:user_id, :event_name, :server, :source, :destination, :time, :trailer, :route_map, :event_page, :notes, :spreadsheet)";
 		$query = $this->db->prepare($sql);
-		$parameters = array(':user_id' => $user_id, ':event_name' => $event_name, ':server' => $server, ':source' => $source, ':destination' => $destination, ':time' => $time, ':trailer' => $trailer, ':route_map' => $route_map, ':event_page' => $event_page, ':notes' => $notes);
+		$parameters = array(':user_id' => $user_id, ':event_name' => $event_name, ':server' => $server, ':source' => $source, ':destination' => $destination, ':time' => $time, ':trailer' => $trailer, ':route_map' => $route_map, ':event_page' => $event_page, ':notes' => $notes, ':spreadsheet' => $spreadsheet);
 		$query->execute($parameters);
 		$event_id = $this->db->lastInsertId();
 		return $event_id;
@@ -241,11 +241,11 @@ class Model
 		$parameters = array(':confirm' => $confirm, ':event_id' => $event_id, ':role_id' => $role_id);
 		$query->execute($parameters);
 	}
-	public function updateEvent($event_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes)
+	public function updateEvent($event_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes, $spreadsheet)
 	{
-		$sql = "UPDATE events SET event_name = :event_name, server = :server, source = :source, destination = :destination, time = :time, trailer = :trailer, route_map = :route_map, event_page = :event_page, notes = :notes WHERE event_id = :event_id";
+		$sql = "UPDATE events SET event_name = :event_name, server = :server, source = :source, destination = :destination, time = :time, trailer = :trailer, route_map = :route_map, event_page = :event_page, notes = :notes, spreadsheet = :spreadsheet WHERE event_id = :event_id";
 		$query = $this->db->prepare($sql);
-		$parameters = array(':event_id' => $event_id, ':event_name' => $event_name, ':server' => $server, ':source' => $source, ':destination' => $destination, ':time' => $time, ':trailer' => $trailer, ':route_map' => $route_map, ':event_page' => $event_page, ':notes' => $notes);
+		$parameters = array(':event_id' => $event_id, ':event_name' => $event_name, ':server' => $server, ':source' => $source, ':destination' => $destination, ':time' => $time, ':trailer' => $trailer, ':route_map' => $route_map, ':event_page' => $event_page, ':notes' => $notes, ':spreadsheet' => $spreadsheet);
 		$query->execute($parameters);
 	}
 	public function insertAbsence($user_id, $start_date, $end_date, $reason)

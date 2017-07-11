@@ -50,12 +50,13 @@ class User extends Controller
 			$route_map = $this->protect($_POST['route_map']);
 			$event_page = $this->protect($_POST['event_page']);
 			$notes = $this->protect($_POST['notes']);
-			if ($event_name == null || $source == null || $destination == null || $time == null || $route_map == null || $event_page == null || $notes == null) {
+			$spreadsheet = $this->protect($_POST['spreadsheet']);
+			if ($event_name == null || $source == null || $destination == null || $time == null || $route_map == null || $event_page == null || $notes == null || $spreadsheet == null) {
 				$success = 0;
 			} else if ($time < time()) {
 				$success = 0;
 			} else {
-				$event_id = $this->model->createEvent($_SESSION['user_id'], $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes);
+				$event_id = $this->model->createEvent($_SESSION['user_id'], $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes, $spreadsheet);
 				if (isset($_POST['lead'])) {
 					$this->model->insertEventRoles($event_id, 0, 1);
 				}
@@ -337,12 +338,13 @@ class User extends Controller
 			$route_map = $this->protect($_POST['route_map']);
 			$event_page = $this->protect($_POST['event_page']);
 			$notes = $this->protect($_POST['notes']);
-			if ($event_name == null || $source == null || $destination == null || $time == null || $route_map == null || $event_page == null || $notes == null) {
+			$spreadsheet = $this->protect($_POST['spreadsheet']);
+			if ($event_name == null || $source == null || $destination == null || $time == null || $route_map == null || $event_page == null || $notes == null || $spreadsheet == null) {
 				$success = 0;
 			} else if ($time < time()) {
 				$success = 0;
 			} else {
-				$this->model->updateEvent($event_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes);
+				$this->model->updateEvent($event_id, $event_name, $server, $source, $destination, $time, $trailer, $route_map, $event_page, $notes, $spreadsheet);
 				$success = 1;
 			}
 		}

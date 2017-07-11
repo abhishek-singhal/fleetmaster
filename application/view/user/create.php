@@ -51,6 +51,13 @@
                     </label>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Spreadsheet Link</label>
+                  <input type="text" class="form-control" placeholder="Enter the URL here" name="spreadsheet" required>
+                  <p class="help-block">Enter 0 if not available. Can be edited later.</p>
+                </div>
+
               </div>
               <div class="col-md-6">
                 <div class="form-group">

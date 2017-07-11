@@ -82,4 +82,15 @@ class Controller
 		}
 		return $ip;
 	}
+	public function editurl($input){
+		if($input == NULL || $input == 0) {
+			$output = $input;
+		}
+		else if(substr($input,0,4) != "http"){
+			$output = "https://" . $input;
+		}else{
+			$output = $input;
+		}
+		return $output;
+	}
 }

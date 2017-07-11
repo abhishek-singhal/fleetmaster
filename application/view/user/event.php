@@ -53,7 +53,7 @@
               <div align="left">Route Map</div>
               </dt>
               <dd><?php if ($event_details->route_map == '0') {
-									echo "Coming Soon";
+									echo "Not Available";
 								} else { ?><a href="<?php echo $event_details->route_map; ?>" target="_blank">Click Here</a><?php } ?>
               </dd>
             </dl>
@@ -62,8 +62,17 @@
               <div align="left">ETS2C.COM</div>
               </dt>
               <dd><?php if ($event_details->event_page == '0') {
-									echo "Coming Soon";
+									echo "Not Available";
 								} else { ?><a href="<?php echo $event_details->event_page; ?>" target="_blank">Click Here</a><?php } ?>
+              </dd>
+            </dl>
+            <dl class="dl-horizontal">
+              <dt>
+              <div align="left">Spreadsheet</div>
+              </dt>
+              <dd><?php if ($event_details->spreadsheet == '0') {
+									echo "Not Available";
+								} else { ?><a href="<?php echo $event_details->spreadsheet; ?>" target="_blank">Click Here</a><?php } ?>
               </dd>
             </dl>
             <dl class="dl-horizontal">

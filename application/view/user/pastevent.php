@@ -8,11 +8,6 @@
                 <div class="box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title"><?php echo $event_details->event_name;?></h3>
-                        <div class="box-tools">
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                Created By: <a href="<?php echo URL . 'user/profile/' . $event_details->user_id;?>" target="_blank"><?php echo $this->model->fetchUser($event_details->user_id)->steam_name;?></a>
-                            </ul>
-                        </div>
                     </div>
                     <div class="box-body">
                         <dl class="dl-horizontal">
@@ -47,6 +42,10 @@
                             <dt><div align="left">ETS2C.COM</div></dt>
                             <dd><?php if($event_details->event_page == '0'){ echo "Not Available"; }else{?><a href="<?php echo $event_details->event_page;?>" target="_blank">Click Here</a><?php }?></dd>
                         </dl>
+                      <dl class="dl-horizontal">
+                        <dt><div align="left">Spreadsheet</div></dt>
+                        <dd><?php if($event_details->spreadsheet == '0'){ echo "Not Available"; }else{?><a href="<?php echo $event_details->spreadsheet;?>" target="_blank">Click Here</a><?php }?></dd>
+                      </dl>
                         <dl class="dl-horizontal">
                             <dt><div align="left">Additional Notes:</div></dt>
                             <dd><?php echo $event_details->notes;?></dd>
@@ -60,6 +59,11 @@
                 <div class="box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title">Event Details</h3>
+                      <div class="box-tools">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                          Created By: <a href="<?php echo URL . 'user/profile/' . $event_details->user_id;?>" target="_blank"><?php echo $this->model->fetchUser($event_details->user_id)->steam_name;?></a>
+                        </ul>
+                      </div>
                     </div>
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover table-bordered">
