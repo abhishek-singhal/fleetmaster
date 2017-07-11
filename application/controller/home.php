@@ -8,7 +8,7 @@ class Home extends Controller
 		$t = $latest_event->min_time - time();
 		$members = $this->model->fetchProfilesAll();
 		require APP . '../public/includes/openid.php';
-		$_STEAMAPI = "03B0C68B2B0BF14C49BF8131D3CF6022";
+		require APP . '../public/includes/keys.php';
 		try {
 			$openid = new LightOpenID('http://127.0.0.1/fme/home/index');
 			if (!$openid->mode) {

@@ -372,7 +372,7 @@ class User extends Controller
 			header('location: ' . URL . 'user/logout');
 		}
 		$profile = $this->model->fetchUser($user_id);
-		$_STEAMAPI = "03B0C68B2B0BF14C49BF8131D3CF6022";
+		require APP . '../public/includes/keys.php';
 		$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=$_STEAMAPI&steamids=$profile->steam_id";
 		$json_object = file_get_contents($url);
 		$json_decoded = json_decode($json_object);

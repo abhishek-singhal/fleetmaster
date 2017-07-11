@@ -89,16 +89,16 @@
                   <div class="input-group">
                     <input type="checkbox" name="lead" class="minimal" checked> Lead &emsp;
                     <input type="checkbox" name="colead" class="minimal" checked> Co-Lead &emsp;
-                    <input type="checkbox" name="cc1" class="minimal" checked> CC1 &emsp;
-                    <input type="checkbox" name="cc2" class="minimal" checked> CC2 &emsp;
-                    <input type="checkbox" name="cc3" class="minimal" checked> CC3 &emsp;
-                    <input type="checkbox" name="cc4" class="minimal" checked> CC4 &emsp;
-                    <input type="checkbox" name="cc5" class="minimal" checked> CC5 &emsp;
-                    <input type="checkbox" name="cc6" class="minimal"> CC6 &emsp;
-                    <input type="checkbox" name="cc7" class="minimal"> CC7 &emsp;
-                    <input type="checkbox" name="cc8" class="minimal"> CC8 &emsp;
-                    <input type="checkbox" name="cc9" class="minimal"> CC9 &emsp;
-                    <input type="checkbox" name="cc10" class="minimal"> CC10 &emsp;
+                    <input type="checkbox" name="cc1" class="minimal" checked> OU1 &emsp;
+                    <input type="checkbox" name="cc2" class="minimal" checked> OU2 &emsp;
+                    <input type="checkbox" name="cc3" class="minimal" checked> OU3 &emsp;
+                    <input type="checkbox" name="cc4" class="minimal" checked> OU4 &emsp;
+                    <input type="checkbox" name="cc5" class="minimal" checked> OU5 &emsp;
+                    <input type="checkbox" name="cc6" class="minimal"> OU6 &emsp;
+                    <input type="checkbox" name="cc7" class="minimal"> OU7 &emsp;
+                    <input type="checkbox" name="cc8" class="minimal"> OU8 &emsp;
+                    <input type="checkbox" name="cc9" class="minimal"> OU9 &emsp;
+                    <input type="checkbox" name="cc10" class="minimal"> OU10 &emsp;
                     <input type="checkbox" name="middle" class="minimal" checked> Middle &emsp;
                     <input type="checkbox" name="tail" class="minimal" checked> Tail &emsp;
                     <input type="checkbox" name="reserve" class="minimal" checked> Reserve
