@@ -88,7 +88,7 @@ class Home extends Controller
 	}
 	public function updatesteam(){
 		$members = $this->model->fetchProfilesAll();
-		$_STEAMAPI = "03B0C68B2B0BF14C49BF8131D3CF6022";
+		require APP . '../public/includes/keys.php';
 		$url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=$_STEAMAPI&steamids=";
 		foreach($members AS $member){
 			$url = $url . $member->steam_id . ",";
